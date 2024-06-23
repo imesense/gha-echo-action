@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - '**'
+    paths:
+      - '.github/workflows/**'
+      - 'src/**'
+      - 'dist/**'
+      - 'package*.json'
+      - 'action.json'
 
 jobs:
   run-action:

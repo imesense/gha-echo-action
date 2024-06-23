@@ -14,6 +14,8 @@ Simple action for printing input to output
 
 ### `output-string`
 
+- Output string
+
 ## Example usage
 
 ```yaml
