@@ -1,0 +1,17 @@
+name: 'Echo Action'
+description: 'Simple action for printing input to output'
+author: 'acidicMercury8'
+
+inputs:
+  input-string:
+    description: 'Input string'
+    required: true
+    default: 'input'
+
+outputs:
+  output-string:
+    description: 'Output string'
+
+runs:
+  using: node18
+  main: dist/index.js
