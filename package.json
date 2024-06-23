@@ -10,7 +10,11 @@
     "JavaScript"
   ],
   "scripts": {
-    "package": "npx ncc build src/index.js -o dist --source-map --license licenses.txt"
+    "format:write": "npx prettier --write .",
+    "format:check": "npx prettier --check .",
+    "lint": "npx eslint .",
+    "pack": "npx ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "pack:watch": "npm run package -- --watch"
   },
   "homepage": "https://github.com/imesense/gha-echo-action#readme",
   "repository": {
@@ -31,6 +35,9 @@
     "@actions/github": "^6.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.1"
+    "@vercel/ncc": "^0.38.1",
+    "eslint": "^9.5.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-brace-style": "^0.6.2"
   }
 }
