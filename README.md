@@ -6,13 +6,21 @@ Simple action for printing input to output
 
 ### `input-string`
 
-- **Required**
+- __Required__
 - Input string
 - Default `"input"`
 
 ## Outputs
 
 ### `output-string`
+
+## Example usage
+
+```yaml
+uses: imesense/gha-echo-action@1a952eacd99fa6545edfdc921d5cd84a3ddfc3b2
+with:
+  input-string: 'Input'
+```
 
 - Output string
 
