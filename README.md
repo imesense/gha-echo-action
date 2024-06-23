@@ -17,7 +17,7 @@ Simple action for printing input to output
 ## Example usage
 
 ```yaml
-uses: imesense/gha-echo-action@1a952eacd99fa6545edfdc921d5cd84a3ddfc3b2
+uses: imesense/gha-echo-action@ecdbfc7e5d602ee3c2b685defd5177ff27041578
 with:
   input-string: 'Input'
 ```
