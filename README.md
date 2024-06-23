@@ -1,5 +1,9 @@
 # Echo Action
 
+[![License](https://img.shields.io/badge/License-MIT-green)](./LICENSE)
+[![Release](https://img.shields.io/github/v/release/imesense/gha-echo-action?include_prereleases&label=Release)](https://github.com/imesense/gha-echo-action/releases/tag/v0.1)
+[![Run action](https://github.com/imesense/gha-echo-action/actions/workflows/run-action.yml/badge.svg)](https://github.com/imesense/gha-echo-action/actions/workflows/run-action.yml)
+
 Simple action for printing input to output
 
 ## Inputs
@@ -19,7 +23,7 @@ Simple action for printing input to output
 ## Example usage
 
 ```yaml
-uses: imesense/gha-echo-action@ecdbfc7e5d602ee3c2b685defd5177ff27041578
+uses: imesense/gha-echo-action@v0.1
 with:
   input-string: 'Input'
 ```
