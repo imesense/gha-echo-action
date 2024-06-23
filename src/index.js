@@ -7,7 +7,7 @@ try
     console.log(`${input}!`);
 
     const output = input;
-    core.setOutput("output", output);
+    core.setOutput("output-string", output);
 
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`Event payload: ${payload}`);
