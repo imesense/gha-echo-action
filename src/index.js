@@ -9,7 +9,7 @@ try
     const output = input;
     core.setOutput("output-string", output);
 
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`Event payload: ${payload}`);
 }
 catch (error)

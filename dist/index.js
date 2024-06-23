@@ -31135,7 +31135,7 @@ try
     const output = input;
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("output-string", output);
 
-    const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload, undefined, 2)
+    const payload = JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload, undefined, 2);
     console.log(`Event payload: ${payload}`);
 }
 catch (error)
