@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Print input
         id: echo-action
-        uses: imesense/gha-echo-action@5fef9c0283c02649779972644d6b6046f2c84e73
+        uses: imesense/gha-echo-action@b0c666c33ed9816bc7b4fd3a9e9f2287a7b71570
         with:
           input-string: 'Input'
 
