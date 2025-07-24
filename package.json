@@ -15,7 +15,7 @@
     "format:check": "npx prettier --check .",
     "lint": "npx eslint .",
     "test": "node --experimental-vm-modules --no-warnings ./node_modules/jest/bin/jest.js",
-    "pack": "npx ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "pack": "npx rollup --config rollup.config.js",
     "pack:watch": "npm run package -- --watch"
   },
   "homepage": "https://github.com/imesense/gha-echo-action#readme",
@@ -37,10 +37,15 @@
     "@actions/github": "6.0.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "0.38.3",
+    "@rollup/plugin-commonjs": "28.0.6",
+    "@rollup/plugin-node-resolve": "16.0.1",
     "eslint": "9.31.0",
     "jest": "30.0.5",
     "prettier": "3.6.2",
-    "prettier-plugin-brace-style": "0.8.0"
+    "prettier-plugin-brace-style": "0.8.0",
+    "rollup": "4.45.1"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.45.1"
   }
 }
