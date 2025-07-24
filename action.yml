@@ -1,17 +1,19 @@
-name: 'Echo Action'
-description: 'Simple action for printing input to output'
-author: 'acidicMercury8'
+# yaml-language-server: $schema=https://json.schemastore.org/github-action.json
+
+name: "Echo Action"
+description: "Simple action for printing input to output"
+author: "acidicMercury8"
 
 inputs:
-  input-string:
-    description: 'Input string'
-    required: true
-    default: 'input'
+    input-string:
+        description: "Input string"
+        required: true
+        default: "input"
 
 outputs:
-  output-string:
-    description: 'Output string'
+    output-string:
+        description: "Output string"
 
 runs:
-  using: node20
-  main: dist/index.js
+    using: node20
+    main: dist/index.js

@@ -1,36 +1,36 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 
-name: 'Run action'
+name: "Run action"
 
 on:
-  push:
-    branches:
-      - '**'
-    paths:
-      - '.github/workflows/**'
-      - 'src/**'
-      - 'dist/**'
-      - 'package*.json'
-      - 'action.json'
+    push:
+        branches:
+            - "**"
+        paths:
+            - ".github/workflows/**"
+            - "src/**"
+            - "dist/**"
+            - "package*.json"
+            - "action.json"
 
 jobs:
-  run-action:
-    name: 'Run action'
+    run-action:
+        name: "Run action"
 
-    strategy:
-      matrix:
-        system:
-          - ubuntu-latest
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-latest
 
-    runs-on: ${{ matrix.system }}
+        runs-on: ${{ matrix.system }}
 
-    steps:
-      - name: Print input
-        id: echo-action
-        uses: imesense/gha-echo-action@default
-        with:
-          input-string: 'Input'
+        steps:
+            - name: Print input
+              id: echo-action
+              uses: imesense/gha-echo-action@default
+              with:
+                  input-string: "Input"
 
-      - name: Print output
-        run: |
-          echo "${{ steps.echo-action.outputs.output-string }}"
+            - name: Print output
+              run: |
+                  echo "${{ steps.echo-action.outputs.output-string }}"
