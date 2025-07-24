@@ -9,5 +9,8 @@ logs
 *.log
 npm-debug.log*
 
+# Test results
+coverage/
+
 # macOS cache
 .DS_Store
