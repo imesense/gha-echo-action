@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 
-async function run()
+export async function run()
 {
     try
     {
@@ -16,8 +16,9 @@ async function run()
     }
     catch (error)
     {
-        core.setFailed(error.message);
+        if (error instanceof Error)
+        {
+            core.setFailed(error.message);
+        }
     }
 }
-
-export default run;
