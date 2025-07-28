@@ -39,11 +39,11 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "28.0.6",
     "@rollup/plugin-node-resolve": "16.0.1",
-    "eslint": "9.31.0",
+    "eslint": "9.32.0",
     "jest": "30.0.5",
     "prettier": "3.6.2",
-    "prettier-plugin-brace-style": "0.8.0",
-    "rollup": "4.45.1"
+    "prettier-plugin-brace-style": "0.8.1",
+    "rollup": "4.46.1"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.45.1"
