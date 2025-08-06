@@ -47,8 +47,5 @@
     "prettier-plugin-brace-style": "0.8.1",
     "rollup": "4.46.2",
     "tsx": "4.20.3"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.46.2"
   }
 }
