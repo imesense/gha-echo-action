@@ -2,18 +2,25 @@
 
 * text=auto
 
-# Generated files
-dist/** -diff linguist-generated=true
-
-# Configs
+# Git configs
 .gitattributes text eol=lf encoding=utf-8
-.gitignore     text eol=lf encoding=utf-8
-*.json         text eol=lf encoding=utf-8
-*.yml          text eof=lf encoding=utf-8
-*.yaml         text eof=lf encoding=utf-8
+.gitignore text eol=lf encoding=utf-8
 
-# Sources
+# JavaScript sources
 *.js text eol=lf encoding=utf-8
 
-# Documents
+# JSON configs
+*.json text eol=lf encoding=utf-8
+
+# YAML configs
+*.yml text eof=lf encoding=utf-8
+*.yaml text eof=lf encoding=utf-8
+
+# Environment configs
+*.env* text eol=lf encoding=utf-8
+
+# Markdown files
 *.md text eol=crlf encoding=utf-8
+
+# Generated files
+dist/** -diff linguist-generated=true
