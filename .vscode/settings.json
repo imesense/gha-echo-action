@@ -1,4 +1,9 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    "files.associations": {
+        "*.env*": "properties"
+    },
+
     "redhat.telemetry.enabled": false
 }
