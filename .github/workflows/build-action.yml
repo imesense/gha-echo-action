@@ -1,0 +1,168 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: "Build action"
+
+on:
+    push:
+        branches:
+            - "**"
+        paths:
+            - ".github/workflows/**"
+            - "src/**"
+            - "package*.json"
+            - "action.yml"
+
+jobs:
+    build-action:
+        name: "Build action"
+
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-24.04
+
+        runs-on: ${{ matrix.system }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20.x"
+
+            - name: Cache dependencies
+              uses: actions/cache@v4
+              with:
+                  key: Action-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      Action-${{ hashFiles('package-lock.json') }}
+                      Action-
+                  path: |
+                      .npm/_cacache/
+                  enableCrossOsArchive: true
+
+            - name: Get dependencies
+              run: |
+                  npm clean-install
+
+            - name: Build action
+              run: |
+                  npm run pack
+
+            - name: Upload action
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ github.event.repository.name }}-build-${{ github.sha }}
+                  path: |
+                      ${{ github.workspace }}/dist/
+                  overwrite: true
+
+            - name: Upload cache
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ github.event.repository.name }}-cache-${{ github.sha }}
+                  path: |
+                      ${{ github.workspace }}/.npm/_cacache/
+                  overwrite: true
+
+    test-action:
+        name: "Test action"
+
+        needs:
+            - build-action
+
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-24.04
+
+        runs-on: ${{ matrix.system }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20.x"
+
+            - name: Cache dependencies
+              uses: actions/cache@v4
+              with:
+                  key: Action-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      Action-${{ hashFiles('package-lock.json') }}
+                      Action-
+                  path: |
+                      .npm/_cacache/
+                  enableCrossOsArchive: true
+
+            - name: Get dependencies
+              run: |
+                  npm clean-install
+
+            - name: Run tests
+              run: |
+                  npm run test
+
+            - name: Upload coverage
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ github.event.repository.name }}-coverage-${{ github.sha }}
+                  path: |
+                      ${{ github.workspace }}/coverage/
+
+    run-action:
+        name: "Run action"
+
+        needs:
+            - test-action
+
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-24.04
+
+        runs-on: ${{ matrix.system }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20.x"
+
+            - name: Cache dependencies
+              uses: actions/cache@v4
+              with:
+                  key: Action-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      Action-${{ hashFiles('package-lock.json') }}
+                      Action-
+                  path: |
+                      .npm/_cacache/
+                  enableCrossOsArchive: true
+
+            - name: Get dependencies
+              run: |
+                  npm clean-install
+
+            - name: Generate config
+              run: |
+                  echo "INPUT_INPUT-STRING=2400" >> .env
+                  echo "ACTIONS_STEP_DEBUG=true" >> .env
+
+            - name: Run action
+              run: |
+                  npm start
