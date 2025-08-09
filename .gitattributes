@@ -2,25 +2,83 @@
 
 * text=auto
 
-# Git configs
-.gitattributes text eol=lf encoding=utf-8
-.gitignore text eol=lf encoding=utf-8
-
-# JavaScript sources
-*.js text eol=lf encoding=utf-8
-
-# JSON configs
-*.json text eol=lf encoding=utf-8
-
-# YAML configs
-*.yml text eof=lf encoding=utf-8
-*.yaml text eof=lf encoding=utf-8
-
 # Environment configs
 *.env* text eol=lf encoding=utf-8
 
 # Markdown files
 *.md text eol=crlf encoding=utf-8
+
+# Text documents
+*.txt text eol=crlf encoding=utf-8
+
+# Git configs
+.gitattributes text eol=lf encoding=utf-8
+.gitignore text eol=lf encoding=utf-8
+.mailmap text eol=lf encoding=utf-8
+
+# EditorConfig files
+.editorconfig text eol=crlf encoding=utf-8
+
+# MarkdownLint configs
+.markdownlint*.json* text eol=lf encoding=utf-8
+.markdownlint*.y*ml text eol=lf encoding=utf-8
+.markdownlint*.*js text eol=lf encoding=utf-8
+
+# Node.js and NVM configs
+.node-version text eol=lf encoding=utf-8
+.nvmrc text eol=lf encoding=utf-8
+
+# NPM configs
+.npmrc text eol=lf encoding=utf-8
+
+# NPM manifests
+package*.json text eol=lf encoding=utf-8
+
+# Prettier configs
+.prettierignore text eol=lf encoding=utf-8
+.prettierrc text eol=lf encoding=utf-8
+.prettierrc.json* text eol=lf encoding=utf-8
+.prettierrc.y*ml text eol=lf encoding=utf-8
+.prettierrc.*js text eol=lf encoding=utf-8
+.prettierrc.*ts text eol=lf encoding=utf-8
+.prettierrc.toml text eol=lf encoding=utf-8
+prettier.config.*js text eol=lf encoding=utf-8
+prettier.config.*ts text eol=lf encoding=utf-8
+
+# ESLint configs
+eslint.config.*js text eol=lf encoding=utf-8
+eslint.config.*ts text eol=lf encoding=utf-8
+
+# Jest configs
+jest.config*.json* text eol=lf encoding=utf-8
+jest.config*.*js text eol=lf encoding=utf-8
+
+# Rollup configs
+rollup.config.*js text eol=lf encoding=utf-8
+rollup.config.*ts text eol=lf encoding=utf-8
+
+# Docker files
+*.dockerignore text eol=lf encoding=utf-8
+Dockerfile* text eol=lf encoding=utf-8
+
+# Visual Studio Code files
+*.code-workspace text eol=crlf encoding=utf-8
+.vscode/*.json text eol=crlf encoding=utf-8
+
+# DevContainers manifests
+.devcontainer/**/devcontainer.json text eol=lf encoding=utf-8
+
+# GitHub configs
+.github/CODEOWNERS text eol=lf encoding=utf-8
+.github/**/*.md text eol=lf encoding=utf-8
+.github/**/*.y*ml text eol=lf encoding=utf-8
+
+# GitHub Actions manifests
+action.y*ml text eol=lf encoding=utf-8
+
+# JavaScript sources
+src/**/*.js text eol=lf encoding=utf-8
+test/**/*.js text eol=lf encoding=utf-8
 
 # Generated files
 dist/** -diff linguist-generated=true
