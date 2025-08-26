@@ -1,14 +1,14 @@
-import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 
-import * as core from './core.fixture';
-import * as github from './github.fixture';
+import * as core from "./core.fixture";
+import * as github from "./github.fixture";
 
-jest.mock('@actions/core', () => core);
-jest.mock('@actions/github', () => github);
+jest.mock("@actions/core", () => core);
+jest.mock("@actions/github", () => github);
 
-const { run } = await import('../src/Action');
+const { run } = await import("../src/Action");
 
-describe('Action', () =>
+describe("Action", () =>
 {
     let consoleLog;
 
@@ -16,7 +16,9 @@ describe('Action', () =>
     {
         jest.clearAllMocks();
 
-        consoleLog = jest.spyOn(console, 'log').mockImplementation(() => {});
+        consoleLog = jest.spyOn(console, "log").mockImplementation(() =>
+        {
+        });
     });
 
     afterEach(() =>
@@ -24,17 +26,17 @@ describe('Action', () =>
         consoleLog.mockRestore();
     });
 
-    it('should set output correctly', async () =>
+    it("should set output correctly", async () =>
     {
-        core.getInput.mockReturnValue('test');
+        core.getInput.mockReturnValue("test");
         await run();
 
-        expect(core.setOutput).toHaveBeenCalledWith('output-string', 'test');
+        expect(core.setOutput).toHaveBeenCalledWith("output-string", "test");
     });
 
     it("should get input and set output correctly", async () =>
     {
-        const consoleLog = jest.spyOn(console, 'log');
+        const consoleLog = jest.spyOn(console, "log");
 
         const testInput = "test input";
         core.getInput.mockReturnValue(testInput);
@@ -45,7 +47,7 @@ describe('Action', () =>
         expect(core.setOutput).toHaveBeenCalledWith("output-string", "test input");
     });
 
-    it('should log event payload', async () =>
+    it("should log event payload", async () =>
     {
         await run();
 
@@ -57,26 +59,26 @@ describe('Action', () =>
             }
         };
         expect(consoleLog).toHaveBeenCalledWith(
-            expect.stringContaining('Event payload:')
+            expect.stringContaining("Event payload:")
         );
 
         const loggedPayload = JSON.parse(
             consoleLog.mock.calls
-                .find(call => call[0].includes('Event payload:'))[0]
-                .replace('Event payload: ', '')
+                .find((call) => call[0].includes("Event payload:"))[0]
+                .replace("Event payload: ", "")
         );
         expect(loggedPayload).toEqual(expectedPayload);
     });
 
-    it('should handle errors', async () =>
+    it("should handle errors", async () =>
     {
-        const error = new Error('Test error');
+        const error = new Error("Test error");
         core.getInput.mockImplementation(() =>
         {
             throw error;
         });
         await run();
 
-        expect(core.setFailed).toHaveBeenCalledWith('Test error');
+        expect(core.setFailed).toHaveBeenCalledWith("Test error");
     });
 });

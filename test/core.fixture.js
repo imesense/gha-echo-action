@@ -1,6 +1,6 @@
-import { jest } from '@jest/globals';
+import { jest } from "@jest/globals";
 
-export const getInput = jest.fn().mockImplementation(name =>
+export const getInput = jest.fn().mockImplementation((name) =>
 {
     if (name === "input-string")
     {

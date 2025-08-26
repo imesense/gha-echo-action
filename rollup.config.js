@@ -1,22 +1,22 @@
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import rollupPluginLicense from 'rollup-plugin-license';
-import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+import rollupPluginLicense from "rollup-plugin-license";
+
+import commonjs from "@rollup/plugin-commonjs";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const license = rollupPluginLicense;
-
 const config =
 {
-    input: 'src/index.js',
+    input: "src/index.js",
 
     output: {
-        file: 'dist/index.js',
+        file: "dist/index.js",
         esModule: true,
-        format: 'es',
+        format: "es",
         sourcemap: true
     },
 
@@ -27,14 +27,14 @@ const config =
             preferBuiltins: true
         }),
 
-        license({
+        rollupPluginLicense({
             sourcemap: true,
 
             banner: {
                 content: {
-                    file: join(__dirname, 'LICENSE.txt'),
-                    encoding: 'utf-8',
-                },
+                    file: join(__dirname, "LICENSE.txt"),
+                    encoding: "utf-8"
+                }
             },
 
             thirdParty: {
@@ -42,10 +42,10 @@ const config =
                 includeSelf: true,
                 multipleVersions: true,
                 output: {
-                    file: join(__dirname, 'dist', 'LICENSE.txt'),
-                    encoding: 'utf-8',
-                },
-            },
+                    file: join(__dirname, "dist", "LICENSE.txt"),
+                    encoding: "utf-8"
+                }
+            }
         })
     ]
 };

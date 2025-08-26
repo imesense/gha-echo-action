@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals';
+import { jest } from "@jest/globals";
 
 export const context =
 {
@@ -12,7 +12,7 @@ export const context =
 
 export default
 {
-    ...jest.requireActual('@actions/github'),
+    ...jest.requireActual("@actions/github"),
 
     get context()
     {

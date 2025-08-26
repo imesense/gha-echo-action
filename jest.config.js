@@ -1,37 +1,39 @@
-/** @type {import('jest').Config} */
+/**
+ * @type {import('jest').Config}
+ */
 const config =
 {
     verbose: true,
 
     moduleFileExtensions: [
-        'js'
+        "js"
     ],
 
-    testEnvironment: 'node',
+    testEnvironment: "node",
     testMatch: [
-        '**/*.test.js'
+        "**/*.test.js"
     ],
     testPathIgnorePatterns: [
-        '/dist/',
-        '/node_modules/'
+        "/dist/",
+        "/node_modules/"
     ],
 
     clearMocks: true,
 
     collectCoverage: true,
     collectCoverageFrom: [
-        './src/**'
+        "./src/**"
     ],
 
-    coverageDirectory: './coverage',
+    coverageDirectory: "./coverage",
     coveragePathIgnorePatterns: [
-        '/node_modules/',
-        '/dist/'
+        "/node_modules/",
+        "/dist/"
     ],
     coverageReporters: [
-        'json-summary',
-        'text',
-        'lcov'
+        "json-summary",
+        "text",
+        "lcov"
     ],
 
     transform: {}
