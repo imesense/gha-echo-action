@@ -172,6 +172,14 @@ indent_size = 4
 indent_style = space
 insert_final_newline = true
 
+# ActionLint files
+[actionlint.y*ml]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
 # JavaScript sources
 [{src/**/*.js,test/**/*.js}]
 charset = utf-8

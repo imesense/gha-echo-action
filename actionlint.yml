@@ -1,0 +1,13 @@
+# Self-hosted runner settings
+self-hosted-runner:
+    # Labels of self-hosted runner
+    labels: []
+
+# Configuration variables
+config-variables: null
+
+# Configuration for file paths
+paths:
+    .github/workflows/**/*.{yml,yaml}:
+        ignore:
+            - invalid runner name "node24"

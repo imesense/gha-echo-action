@@ -76,6 +76,9 @@ Dockerfile* text eol=lf encoding=utf-8
 # GitHub Actions manifests
 action.y*ml text eol=lf encoding=utf-8
 
+# ActionLint files
+actionlint.y*ml text eol=lf encoding=utf-8
+
 # JavaScript sources
 src/**/*.js text eol=lf encoding=utf-8
 test/**/*.js text eol=lf encoding=utf-8
