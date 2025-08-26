@@ -4,16 +4,24 @@ name: "Echo Action"
 description: "Simple action for printing input to output"
 author: "acidicMercury8"
 
+# Define inputs
 inputs:
     input-string:
         description: "Input string"
         required: true
         default: "input"
 
+# Define outputs
 outputs:
     output-string:
         description: "Output string"
 
+# Branding options
+branding:
+    icon: arrow-right
+    color: gray-dark
+
+# Run options
 runs:
     using: node20
     main: dist/index.js
