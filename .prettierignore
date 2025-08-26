@@ -1,7 +1,7 @@
 # Global ignoring of different binaries and another temporary files
 
+# NPM cache
+node_modules/
+
 # Generated files
 dist/
-
-# Dependencies
-node_modules/
