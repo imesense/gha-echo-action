@@ -31275,10 +31275,7 @@ async function run()
     }
     catch (error)
     {
-        if (error instanceof Error)
-        {
-            coreExports.setFailed(error.message);
-        }
+        coreExports.setFailed(error.message);
     }
 }
 
