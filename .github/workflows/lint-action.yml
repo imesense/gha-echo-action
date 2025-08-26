@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: "Lint action"
+
+on:
+    push:
+        branches:
+            - "**"
+        paths:
+            - ".github/workflows/**"
+            - "src/**"
+            - "test/**"
+            - "package*.json"
+            - "action.yml"
+
+permissions:
+    contents: read
+    packages: read
+    statuses: write
+
+jobs:
+    lint-action:
+        name: "Lint action"
+
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-24.04
+
+        runs-on: ${{ matrix.system }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: .node-version
+
+            - name: Cache dependencies
+              uses: actions/cache@v4
+              with:
+                  key: Action-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      Action-${{ hashFiles('package-lock.json') }}
+                      Action-
+                  path: |
+                      .npm/_cacache/
+                  enableCrossOsArchive: true
+
+            - name: Get dependencies
+              run: |
+                  npm clean-install
+
+            - name: Lint action
+              uses: super-linter/super-linter/slim@v8
+              env:
+                  DEFAULT_BRANCH: default
+                  FILTER_REGEX_EXCLUDE: dist/**
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  LINTER_RULES_PATH: .
+                  VALIDATE_ALL_CODEBASE: true
