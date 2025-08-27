@@ -6,6 +6,7 @@
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/imesense/gha-echo-action)
 [![Build action](https://github.com/imesense-projects/gha-echo-action/actions/workflows/build-action.yml/badge.svg)](https://github.com/imesense-projects/gha-echo-action/actions/workflows/build-action.yml)
 [![Lint action](https://github.com/imesense-projects/gha-echo-action/actions/workflows/lint-action.yml/badge.svg)](https://github.com/imesense-projects/gha-echo-action/actions/workflows/lint-action.yml)
+[![Analyze action](https://github.com/imesense-projects/gha-echo-action/actions/workflows/analyze-action.yml/badge.svg)](https://github.com/imesense-projects/gha-echo-action/actions/workflows/analyze-action.yml)
 [![Run action](https://github.com/imesense/gha-echo-action/actions/workflows/run-action.yml/badge.svg)](https://github.com/imesense/gha-echo-action/actions/workflows/run-action.yml)
 
 Simple action for printing input to output.
