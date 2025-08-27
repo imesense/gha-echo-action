@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: "Analyze action"
+
+on:
+    pull_request:
+        branches:
+            - "default"
+        paths:
+            - ".github/workflows/**"
+            - "src/**"
+            - "test/**"
+            - "package*.json"
+    push:
+        branches:
+            - "default"
+        paths:
+            - ".github/workflows/**"
+            - "src/**"
+            - "test/**"
+            - "package*.json"
+    schedule:
+        - cron: "31 7 * * 3"
+
+permissions:
+    actions: read
+    checks: write
+    contents: read
+    security-events: write
+
+jobs:
+    analyze-javascript:
+        name: "Analyze JavaScript"
+
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-24.04
+                language:
+                    - javascript-typescript
+            fail-fast: false
+
+        runs-on: ${{ matrix.system }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0
+
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v3
+              with:
+                  languages: ${{ matrix.language }}
+                  config-file: .github/codeql/javascript-config.yml
+                  source-root: src
+
+            - name: Run autobuild
+              uses: github/codeql-action/autobuild@v3
+
+            - name: Perform analysis
+              uses: github/codeql-action/analyze@v3
+
+    analyze-actions:
+        name: "Analyze GitHub Actions"
+
+        strategy:
+            matrix:
+                system:
+                    - ubuntu-24.04
+                language:
+                    - actions
+            fail-fast: false
+
+        runs-on: ${{ matrix.system }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0
+
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v3
+              with:
+                  languages: ${{ matrix.language }}
+                  build-mode: none
+
+            - name: Perform analysis
+              uses: github/codeql-action/analyze@v3
