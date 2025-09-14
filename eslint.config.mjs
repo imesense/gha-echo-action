@@ -3,7 +3,8 @@ const config =
     {
         ignores: [
             "dist/**",
-            "node_modules/**"
+            "node_modules/**",
+            "coverage/**"
         ]
     }
 ];
