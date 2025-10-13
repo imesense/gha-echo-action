@@ -47,17 +47,17 @@ jobs:
                   fetch-depth: 0
 
             - name: Initialize CodeQL
-              uses: github/codeql-action/init@v3
+              uses: github/codeql-action/init@v4
               with:
                   languages: javascript-typescript
                   config-file: .github/codeql/javascript-config.yml
                   source-root: src
 
             - name: Run autobuild
-              uses: github/codeql-action/autobuild@v3
+              uses: github/codeql-action/autobuild@v4
 
             - name: Perform analysis
-              uses: github/codeql-action/analyze@v3
+              uses: github/codeql-action/analyze@v4
 
     analyze-actions:
         name: "Analyze GitHub Actions"
@@ -77,10 +77,10 @@ jobs:
                   fetch-depth: 0
 
             - name: Initialize CodeQL
-              uses: github/codeql-action/init@v3
+              uses: github/codeql-action/init@v4
               with:
                   languages: actions
                   build-mode: none
 
             - name: Perform analysis
-              uses: github/codeql-action/analyze@v3
+              uses: github/codeql-action/analyze@v4
