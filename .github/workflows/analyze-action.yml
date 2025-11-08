@@ -35,7 +35,7 @@ jobs:
         strategy:
             matrix:
                 system:
-                    - ubuntu-24.04
+                    - ubuntu-latest
             fail-fast: false
 
         runs-on: ${{ matrix.system }}
@@ -65,7 +65,7 @@ jobs:
         strategy:
             matrix:
                 system:
-                    - ubuntu-24.04
+                    - ubuntu-latest
             fail-fast: false
 
         runs-on: ${{ matrix.system }}
