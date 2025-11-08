@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@github/local-action": "6.0.2",
-    "@rollup/plugin-commonjs": "28.0.9",
+    "@rollup/plugin-commonjs": "29.0.0",
     "@rollup/plugin-node-resolve": "16.0.3",
     "eslint": "9.39.0",
     "jest": "30.2.0",
