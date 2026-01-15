@@ -36,6 +36,8 @@ jobs:
             matrix:
                 system:
                     - ubuntu-latest
+                language:
+                    - javascript
             fail-fast: false
 
         runs-on: ${{ matrix.system }}
@@ -49,15 +51,18 @@ jobs:
             - name: Initialize CodeQL
               uses: github/codeql-action/init@v4
               with:
-                  languages: javascript-typescript
+                  languages: ${{ matrix.language }}
                   config-file: .github/codeql/javascript-config.yml
                   source-root: src
+                  build-mode: none
 
             - name: Run autobuild
               uses: github/codeql-action/autobuild@v4
 
             - name: Perform analysis
               uses: github/codeql-action/analyze@v4
+              with:
+                  category: "/language:${{ matrix.language }}"
 
     analyze-actions:
         name: "Analyze GitHub Actions"
@@ -66,6 +71,8 @@ jobs:
             matrix:
                 system:
                     - ubuntu-latest
+                language:
+                    - actions
             fail-fast: false
 
         runs-on: ${{ matrix.system }}
@@ -79,8 +86,10 @@ jobs:
             - name: Initialize CodeQL
               uses: github/codeql-action/init@v4
               with:
-                  languages: actions
+                  languages: ${{ matrix.language }}
                   build-mode: none
 
             - name: Perform analysis
               uses: github/codeql-action/analyze@v4
+              with:
+                  category: "/language:${{ matrix.language }}"
