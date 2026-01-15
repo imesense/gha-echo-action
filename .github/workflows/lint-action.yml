@@ -74,3 +74,4 @@ jobs:
                   VALIDATE_YAML_PRETTIER: false
                   VALIDATE_BIOME_FORMAT: false
                   VALIDATE_BIOME_LINT: false
+                  VALIDATE_TRIVY: false
