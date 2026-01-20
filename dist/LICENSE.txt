@@ -756,7 +756,7 @@ THE SOFTWARE.
 ---
 
 Name: @octokit/core
-Version: 5.2.0
+Version: 5.2.2
 License: MIT
 Private: false
 Description: Extendable client for GitHub's REST & GraphQL APIs
