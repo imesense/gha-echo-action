@@ -12,6 +12,11 @@ on:
             - "test/**"
             - "package*.json"
             - "action.yml"
+            - ".node-version"
+            - ".nvmrc"
+            - "eslint.config.mjs"
+            - "jest.config.js"
+            - "rollup.config.js"
 
 permissions:
     contents: read
