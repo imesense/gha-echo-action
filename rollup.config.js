@@ -13,6 +13,8 @@ const config =
 {
     input: "src/index.js",
 
+    context: "globalThis",
+
     output: {
         file: "dist/index.js",
         esModule: true,
