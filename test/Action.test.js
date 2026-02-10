@@ -3,8 +3,8 @@ import { beforeEach, describe, expect, it, jest } from "@jest/globals";
 import * as core from "./core.fixture";
 import * as github from "./github.fixture";
 
-jest.mock("@actions/core", () => core);
-jest.mock("@actions/github", () => github);
+jest.unstable_mockModule("@actions/core", () => core);
+jest.unstable_mockModule("@actions/github", () => github);
 
 const { run } = await import("../src/Action");
 

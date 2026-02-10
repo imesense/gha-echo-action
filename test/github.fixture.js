@@ -1,5 +1,3 @@
-import { jest } from "@jest/globals";
-
 export const context =
 {
     payload: {
@@ -12,8 +10,6 @@ export const context =
 
 export default
 {
-    ...jest.requireActual("@actions/github"),
-
     get context()
     {
         return context;
