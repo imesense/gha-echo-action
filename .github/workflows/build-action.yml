@@ -63,7 +63,7 @@ jobs:
                   npm run pack
 
             - name: Upload action
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: ${{ github.event.repository.name }}-build-${{ github.sha }}
                   path: |
@@ -71,7 +71,7 @@ jobs:
                   overwrite: true
 
             - name: Upload cache
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: ${{ github.event.repository.name }}-cache-${{ github.sha }}
                   path: |
@@ -122,7 +122,7 @@ jobs:
                   npm run test
 
             - name: Upload coverage
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: ${{ github.event.repository.name }}-coverage-${{ github.sha }}
                   path: |
