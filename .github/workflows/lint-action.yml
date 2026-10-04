@@ -56,7 +56,7 @@ jobs:
                   npm clean-install
 
             - name: Lint action
-              uses: super-linter/super-linter/slim@v8
+              uses: super-linter/super-linter/slim@v9
               env:
                   DEFAULT_BRANCH: default
                   FILTER_REGEX_EXCLUDE: dist/**
